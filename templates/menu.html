@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jmenu</title>
+  </head>
+  <body>
+    <div>
+      <div>
+        <h2>Menu for {{ data.date }}.</h2>
+      </div>
+      <div>
+        {% from 'macros.html' import menutable %}
+        <table>
+          <tr>
+            <td class="table-container">
+              {{ menutable(data.menus_fi, "Ravintola") }}
+            </td>
+            <td class="table-container">
+              {{ menutable(data.menus_en, "Restaurant") }}
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div>
+      <p>
+        Generated with jmenu {{ data.version }} on {{ data.timestamp }}. For
+        more information, visit
+        <a href="https://pypi.org/project/jmenu/"
+          >https://pypi.org/project/jmenu/</a
+        >.
+      </p>
+    </div>
+  </body>
+</html>

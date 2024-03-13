@@ -1,0 +1,27 @@
+{% macro menutable(data, label) %}
+<!--prettier-ignore-->
+<table class="bordered">
+    <tr>
+    <th class="bordered">{{ label }}</th>
+    <th class="bordered">Menu</th>
+    </tr>
+    {% for res, list in data.items() %}
+    <tr class="bordered">
+    <td class="bordered">{{ res }}</td>
+    <td class="bordered">
+        <table>
+        {% for menu in list %}
+        <tr>
+            <td>{{ menu.name }} 
+            {% for diet in menu.diets %} 
+            {{ diet }} {{ ", " if not loop.last else "" }} 
+            {% endfor %}
+            </td>
+        </tr>
+        {% endfor %} 
+        </table>
+    </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endmacro %}
