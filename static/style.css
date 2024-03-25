@@ -1,8 +1,90 @@
+body {
+  margin: 0 auto;
+  background: -webkit-linear-gradient(left, #111111, #222222);
+  background: linear-gradient(to right, #111111, #222222);
+  font-family: Arial, sans-serif; /* The font used in current menu */
+  width: 1600px; /* Adjust width of the table if needed */
+}
+
+h2 {
+  font-size: 40px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  table-layout: auto;
+}
+
+.table-container {
+  padding: 5px;
+  border: solid 5px rgba(255, 255, 255, 0.2);
+  overflow-x: auto;
+}
+
 .bordered {
-  border: 1px solid black;
+  padding: 5px;
+}
+
+th {
+  padding: 0px 0px 5px 0px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.2);
   border-collapse: collapse;
 }
 
 td {
-  vertical-align: baseline;
+  padding: 0px 0px 0px 0px;
+  text-align: left;
+  line-height: 30px;
+  vertical-align: top;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* Footer text template */
+p {
+  margin-top: 40px;
+  padding: 5px;
+  clear: left;
+  text-align: center;
+  font-size: 13px;
+  font-family: arial;
+  color: #aaa;
+}
+
+p i {
+  font-style: normal;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+
+p a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* For custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }

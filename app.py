@@ -1,8 +1,16 @@
 from datetime import datetime
 from flask import Flask, render_template, Blueprint
+from flask_caching import Cache
 from jmenu.main import get_version
 from jmenu.api import fetch_restaurant_items
 from jmenu.classes import RESTAURANTS
+
+cache = Cache(
+    config={
+        "CACHE_TYPE": "SimpleCache",
+        "CACHE_DEFAULT_TIMEOUT": 3 * 60 * 60,
+    }
+)
 
 
 class JmenuData:
@@ -25,6 +33,7 @@ routes = Blueprint("route", __name__)
 
 
 @routes.route("/")
+@cache.cached()
 def get_menu():
     data = JmenuData()
     return render_template("menu.html", data=data)
@@ -32,3 +41,4 @@ def get_menu():
 
 app = Flask(__name__)
 app.register_blueprint(routes)
+cache.init_app(app)
